@@ -1,0 +1,11 @@
+{
+   "include":[
+    "index*",                                      // barch index * filelar campiliarsia bo'lsin
+    "**/index.ts"                                  // barch file ichidagi index.ts filelar campiliarsia bo'lsin
+   ],
+   "exclude":[
+    "Class/inde.ts"               // "Class/inde.ts" file campiliatsia bo'lmasin degani 
+   ],
+    "allowJs": true,       // barcha js filelarni typeScript compliatsia qilganda uni hamm campiliatsia qiladi                           /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
+    "checkJs": true        // barcha js filelarni typeScript tekshirsin yani bir xil o'zgaruvchi yaratib bo'lmaydi
+}
