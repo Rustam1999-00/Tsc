@@ -1,11 +1,76 @@
 {
-   "include":[
-    "index*",                                      // barch index * filelar campiliarsia bo'lsin
-    "**/index.ts"                                  // barch file ichidagi index.ts filelar campiliarsia bo'lsin
+   "include": [
+      "index*", // barch index * filelar campiliarsia bo'lsin
+      "**/index.ts" // barch file ichidagi index.ts filelar campiliarsia bo'lsin
    ],
-   "exclude":[
-    "Class/inde.ts"               // "Class/inde.ts" file campiliatsia bo'lmasin degani 
+   "exclude": [
+      "Class/inde.ts" // "Class/inde.ts" file campiliatsia bo'lmasin degani 
    ],
-    "allowJs": true,       // barcha js filelarni typeScript compliatsia qilganda uni hamm campiliatsia qiladi                           /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
-    "checkJs": true        // barcha js filelarni typeScript tekshirsin yani bir xil o'zgaruvchi yaratib bo'lmaydi
+   // "allowJs": true,                              // barcha js filelarni typeScript compliatsia qilganda uni hamm campiliatsia qiladi  xatolarini tekshirsin                        
+   // "checkJs": true ,                             // barcha js filelarni typeScript tekshirsin yani bir xil o'zgaruvchi yaratib bo'lmaydi tekshiradi
+   "outDir": "./build/dist", // qaysi filega campiliatsia bo'lishini ko'rsatadi
+   "removeComments": true, // comentarialarni Js filega compiliatsia qilmaydi
+   "importsNotUsedAsValues": "remove", // import qilib ishlatilmayotgan rooutni o'chirib tashlash
+   "noEmitOnError": true, // agar ts fileda Error bo'lsa uni Js filega import qilmaydi
+   "sourceMap": true, // Harbir file yoniga sourse file qoshib beradi  qaysi filedan compiliatsia bo'layaotganini ko'rsatadi
+   "inlineSourceMap": true, // xatolik qaysi qatorda ekanligini yolini File ichida chiqarib beradi
+
+   //=====================29-dars | TSConfig #3 (declaration, declare, *.d.ts files) |
+
+   "declaration": true, // declaration-bu **.d.ts files yasaydi va filelarning interfaseni 
+   //tuzib beradi nimalardan tashkil topga
+   // "declarationDir": "",                                // declaration- fileni qaysi fileda chiqishini ko'rsata
+   // "stripInternal": true,                                // declaration  -- qilayotga filening ichidagi malum qatorni tashlab ketishni belgilaydi
+   // @internal kalt so'zi bn  kommentda belgilanadi uning osti qatoridagi malumot  decler filega o'tmaydi 
+   //"emitDeclarationOnly": true,                          // bu faqat declaration fileni compiliatsia qilib beradi 
+
+   // 30-dars | TSConfig #4 (Language and environment) |
+
+   /* Language and Environment */
+   //"target": "es2020",                                // BUnda typeSkriptning  nechinchi yilgi versiasida ishlashni  korsatadi
+   // "lib": [],                                         // Bu Laybiri buyruqlar jamlanmasi Bunda qanday filtlardan foydalanmoqchi bo'lsa shu filtni ko'rsatib qo'yadi 
+   // Misoll : console.log dan foydalanish uchun "DOM":true,  qilinadi 
+   // "jsx": "preserve",                                // bu reactda foydalaniladi
+   // "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
+   // "jsxFragmentFactory": "",                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */
+   // "jsxImportSource": "",                            /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */
+   // "reactNamespace": "",                             /* Specify the object invoked for 'createElement'. This only applies when targeting 'react' JSX emit. */
+   // "noLib": true,                                    // Buni yoqib qo'ysa "lib":[] - da ishlatilayotgan filtlar o'chirib qo'yiladi
+   // "useDefineForClassFields": true,                  // Bu Classdagi propertilarning holatini o'zgartiradi== Misoll : write:false = qilsa  qayuta o'zgartirib bo'lmaydi
+   // "moduleDetection": "auto", 
+
+   // 31-dars | TSConfig #5 (Modules) | TypeScript darslari |
+
+   // Moduls 
+   // "module": "commonjs",                              // Bu asosan node bn ishlayotganda commonjs da ishlatiladi  Reactda bo'lsa Es6 , node2015,nodenext da foydalaniladi
+   //  "rootDir": "./"                                   // BU qaysi filedagi narsalarni Jsga compiliatsia qillishni yo'lini korsatadi 
+   // "baseUrl": "./",                                    //  Fileni boshqa filedan import qilayotganda  birinchi bolib qaysi filedan izlashni ko'rsatadi
+   // "paths": {"@/*":["Utils/foydali/*]"},                  // BU o'zimiz tushinadigan qilib URL nomini qisqartirish 
+   // "rootDirs": [],                                      // BU compiliatsia qilinishi kerakt bo'lgan birnechta filelarni korsatadi
+   // "moduleSuffixes": [.ios],                            // Bu asosan qanday nomdagi filelarni compiliatsia qiishni ko'rsatadi  Misol ; faqat.ios.ts .and.ts
+   // "resolveJsonModule": true,                           // Bu json filelarni hamm Huddi Objekt filelar kabi ishlatiladi
+   // 
+   //32-dars | TSConfig #6 (Type checking strict mode) |
+
+
+   /* Type Checking */
+   //"strict": true,                                       // Buni yoqilgan turadi BU barcha typega ytekshiradi
+   //  "noImplicitAny": true,                              //Bu yoqilsa M: functionnoing propertilari qanday typda ekanligini aniq ko'rsatish kerakligini qattiy qilib qo'yadi 
+   //   "strictNullChecks": true,                          // Bu yoqilsa M: functionnoing qaytadigan malumot number yoki undefaint qaytishini aniq ko'rsatish kerakt returunda ham if(){} da ishlatiladi asosan
+   // "strictPropertyInitialization": true,                 // bu Clasda properti:stringa ko'rsatib qiymat tenglashtirmasak typeScript xato co'rsatmaydi yoqsak xatoni ushlab oladi
+   //  "noImplicitThis": true,                              // bu functionda thisdan foydalanib bo'lmaslikni ko'rsatadi  Arrov functionda ishlatsa bo'ladi
+   //  "useUnknownInCatchVariables": true,                   // bu Catchda Xato kelsa u qanday typda kelishini bilmaymiz va uning ichidagi xatoni olommayniz False qilsak xato ichidagi malumotni olamiz
+   // "alwaysStrict": true,                                  // buni yoqsak "use strict" fileda compiliatsia qilib beradi 
+   
+   // "noUnusedLocals": true,                                // Bu LocalCkopedagi ishlatilmay qolgan o'zgaruvchilarimizni ko'rsatadi // @ ts.insert  qilsa keyingi qatorni tekshirmay o'tib ketadi lekin compiliatsia qiladi
+   // "noImplicitReturns": true,                             // bu function parameterida qaytadigan qiymat bn returnda qaytadigan qiymatni tekshiradi
+   // "noUnusedParameters": true,                            // Bu fuctionda ishlatilmayotgan propertilarni ko'rsatadi // @ ts.insert qilsa keyingi qatorni tekshirmay o'tib ketadi lekin
+   // "exactOptionalPropertyTypes": true,                    // option typlarni belgilashni qattiy qilib qo'yadi
+   // "noFallthroughCasesInSwitch": true,                    // switch-caseda return bn to'xtatmasa jarayon  keyingiga o'tib ketadi shu retunni tekshiradi
+    // "allowUnreachableCode": true,                         // bu return qilib jarayon to'xtatilgandan keyin yozilgan Codeni xato qilib ko'rsat deb belgilaydi
+   // "noImplicitOverride": true,                            // Class ichidagi Methodn override qilib qayta yothishga ruhsat beradi 
+
+   //"skipLibCheck": true                                    // barcha d.ts filelarni tekshirmay o'tib ketadi 
+
+
 }
